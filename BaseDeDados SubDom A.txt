@@ -1,0 +1,30 @@
+# DNS database file for subdomain croquetes.pasteldenata.
+
+@ DEFAULT croquetes.pasteldenata.
+TTL DEFAULT 86400
+
+@ SOASP SP-sdA.croquetes.pasteldenata. TTL
+@ SOAADMIN dns\.admin.croquetes.pasteldenata. TTL
+@ SOASERIAL 0119112022 TTL
+@ SOAREFRESH 14400 TTL
+@ SOARETRY 3600 TTL
+@ SOAEXPIRE 604800 TTL
+
+@ NS SP-sdA.croquetes.pasteldenata. TTL
+@ NS SS-sdA1.croquetes.pasteldenata. TTL
+@ NS SS-sdA2.croquetes.pasteldenata. TTL
+
+@ MX MXSDA1.croquetes.pasteldenata. TTL 10
+@ MX MXSDA2.croquetes.pasteldenata. TTL 20
+
+SP-sdA A 10.0.21.10 TTL
+SS-sdA1 A 10.0.19.10 TTL
+SS-sdA2 A 10.0.22.11 TTL
+MXSDA1 A 10.0.21.11 TTL
+MXSDA2 A 10.0.20.12 (FALTA) TTL
+
+sp CNAME SP-sdA TTL
+ss1 CNAME SS-sdA1 TTL
+ss2 CNAME SS-sdA2 TTL
+mail1 CNAME MXSDA1 TTL
+mail2 CNAME MXSDA2 TTL 

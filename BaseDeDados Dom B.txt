@@ -1,0 +1,35 @@
+# DNS database file for domain bacalhauaportuguesa
+# It also includes a pointer to the primary server
+# of the rissois subdomain
+
+@ DEFAULT bacalhauaportuguesa.
+TTL DEFAULT 86400
+
+@ SOASP SP-B.bacalhauaportuguesa. TTL
+@ SOAADMIN dns\.admin.bacalhauaportuguesa. TTL
+@ SOASERIAL 0119112022 TTL
+@ SOAREFRESH 14400 TTL
+@ SOARETRY 3600 TTL
+@ SOAEXPIRE 604800 TTL
+
+@ NS SP-B.bacalhauaportuguesa. TTL
+@ NS SS-B1.bacalhauaportuguesa. TTL
+@ NS SS-B2.bacalhauaportuguesa. TTL
+
+rissois.@ NS SP-sdB.rissois.bacalhauaportuguesa.
+
+@ MX MXB1.bacalhauaportuguesa. TTL 10
+@ MX MXB2.bacalhauaportuguesa. TTL 20
+
+SP-B A 10.0.23.10 TTL
+SS-B1 A 10.0.17.10 TTL
+SS-B2 A 10.0.20.11 TTL
+SP-sdB.rissois A 10.0.18.10 TTL
+MXB1 A 10.0.23.11 TTL
+MXB2 A 10.0.22.12 TTL
+
+sp CNAME SP-B TTL
+ss1 CNAME SS-B1 TTL
+ss2 CNAME SS-B2 TTL
+mail1 CNAME MXB1 TTL
+mail2 CNAME MXB2 TTL

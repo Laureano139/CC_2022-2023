@@ -1,0 +1,30 @@
+# DNS database file for subdomain rissois.bacalhauaportuguesa
+
+@ DEFAULT rissois.bacalhauaportuguesa.
+TTL DEFAULT 86400
+
+@ SOASP SP-sdB.rissois.bacalhauaportuguesa. TTL
+@ SOAADMIN dns\.admin.rissois.bacalhauaportuguesa. TTL
+@ SOASERIAL 0119112022 TTL
+@ SOAREFRESH 14400 TTL
+@ SOARETRY 3600 TTL
+@ SOAEXPIRE 604800 TTL
+
+@ NS SP-sdB.rissois.bacalhauaportuguesa. TTL
+@ NS SS-sdB1.rissois.bacalhauaportuguesa. TTL
+@ NS SS-sdB2.rissois.bacalhauaportuguesa. TTL
+
+@ MX MXSDB1.rissois.bacalhauaportuguesa. TTL 10
+@ MX MXSDB2.rissois.bacalhauaportuguesa. TTL 20
+
+SP-sdB A 10.0.18.10 TTL
+SS-sdB1 A 10.0.17.11 TTL
+SS-sdB2 A 10.0.20.10 TTL
+MXSDB1 A 10.0.18.11 TTL
+MXSDB2 A 10.0.19.12 TTL
+
+sp CNAME SP-sdB TTL
+ss1 CNAME SS-sdB1 TTL
+ss2 CNAME SS-sdB2 TTL
+mail1 CNAME MXSDB1 TTL
+mail2 CNAME MXSDB2 TTL 
