@@ -1,0 +1,8 @@
+# Configuration file for primary server for pasteldenata
+pasteldenata DB pasteldenata.txt
+pasteldenata SS 10.0.19.11
+pasteldenata SS 10.0.22.10
+pasteldenata DD 127.0.0.1
+pasteldenata LG pasteldenata.log
+all LG all.log
+root ST rootservers.db
