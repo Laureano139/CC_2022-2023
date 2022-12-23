@@ -6,12 +6,27 @@ from logs import Logs
 from parseConfig import PC
 from parseDB import PDB
 import re
-import datetime
+from datetime import datetime
 from zonetransfer import ZT
 
 
 
 class SP:
+
+
+
+    def __init__(self):
+        self.dominio = ""
+        self.basededados = ""
+        self.secundarios = []
+        self.dd = ""
+        self.logs = {}
+        self.st = ""
+        self.allLogs = Logs(self.logs, sys.argv[2])
+        self.allLogs.ST(str(11111), str(sys.argv[2]))
+        self.allLogs.EV("Ficheiro config lido!!")
+        self.udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+        self.udp.bind(("127.0.0.1", 11111))
 
     tokens = len(sys.argv)
     if tokens == 4:
@@ -20,7 +35,7 @@ class SP:
         debug_option = sys.argv[4]
     elif tokens == 3:
         fileConfig = sys.argv[1]
-        porta = 11111
+        porta = 53
         debug_option = sys.argv[2]
     else:
         print("Introduza o numero correto de argumentos!")
@@ -37,12 +52,12 @@ class SP:
     logs = parseconfig.lg
     st = parseconfig.st
     
-    allLogs = Logs(logs, sys.argv[2])
-    allLogs.ST(str(11111), str(sys.argv[2]))
-    allLogs.EV("Ficheiro config lido!!")
+    # allLogs = Logs(logs, sys.argv[2])
+    # allLogs.ST(str(11111), str(sys.argv[2]))
+    # allLogs.EV("Ficheiro config lido!!")
     
-    udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-    udp.bind(("127.0.0.1", 11111))
+    # udp = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+    # udp.bind(("127.0.0.1", 11111))
     
     
  # ---------------------------------------------------------------------------------------------------------------------------------------------#    
@@ -51,7 +66,7 @@ class SP:
     parse = PDB(basededados,cache)
     parse.parseDB()
     
-    allLogs.EV("Ficheiro de base de dados lido!!")
+    # allLogs.EV("Ficheiro de base de dados lido!!")
  # ---------------------------------------------------------------------------------------------------------------------------------------------#
         
     def geraResposta(self, msgStr, add):
@@ -109,13 +124,13 @@ class SP:
     def recebeNovasQuerys(self):
         while True:
             msg, add = self.udp.recvfrom(1024)
-            # allLogs.QR(True , str(add), msg.decode("utf-8"))
-            # allLogs.QE(True , str(add), msg.decode("utf-8"))
+            self.allLogs.QR(True , str(add), msg.decode("utf-8"))
+            self.allLogs.QE(True , str(add), msg.decode("utf-8"))
             print(f"Recebi uma mensagem do cliente {add}")
             msgStr = msg.decode("utf-8")
             threading.Thread(target=self.geraResposta,args=(msgStr, add)).start()
-            # allLogs.RP(True, str(add), msg.decode("utf-8"))
-            # allLogs.RR(True, str(add), msg.decode("utf-8"))
+            self.allLogs.RP(True, str(add), msg.decode("utf-8"))
+            self.allLogs.RR(True, str(add), msg.decode("utf-8"))
 
 
         
@@ -125,11 +140,7 @@ class SP:
             str += str(l) + ' '
         return str
     
-    def zt(self): #, nome, cache, file
-        
-        # self.name = nome 
-        # self.cache = cache 
-        # self.logFile = file    
+    def zt(self):
         
         porta = 11111
         entries = "Numero de entradas:\n " + str(self.cache.size)
@@ -139,7 +150,6 @@ class SP:
         tcp.bind(('',porta))
         while 1:
             
-            # configfile = open(self.logFile,"a")
             tcp.listen()
         
             tcpSocket, add = tcp.accept()
@@ -149,6 +159,7 @@ class SP:
             tcpSocket.send(entries.encode('utf-8'))
             msg = tcpSocket.recv(1024).decode('utf-8')
             print(msg)
+            address = re.split(':', add)
             
             
             for line in self.cache.array:
@@ -157,8 +168,9 @@ class SP:
                 datetime.time.sleep(0.05)
 
             tcpSocket.close()
-            # Log ZT
-            # configfile.close()
+            date = datetime.now()
+            atmtime = date.strftime("%d:%m:%Y.%H:%M:%S:%f")[:-3]
+            self.allLogs.ZT(f"IP: " + address[0], f"Porta: " + address[1], "ZT", "SS", atmtime)
 
 
         
