@@ -1,0 +1,6 @@
+# Dummy configuration file for Primary Server for testing purposes
+pasteldenata DB pasteldenata.txt
+pasteldenata SS 127.0.0.1
+pasteldenata LG pasteldenata.log
+all LG all.log
+root ST rootservers.db
