@@ -29,18 +29,12 @@ class SP:
    
 
     ## Pus tudo no construtor
-    def __init__(self):
-        tokens = len(sys.argv)
-        if tokens == 5:
-            self.fileConfig = sys.argv[1]
-            self.porta = int(sys.argv[2])
-            self.debug_option = sys.argv[4]
-        elif tokens == 4:
-            self.fileConfig = sys.argv[1]
-            self.porta = 11111
-            self.debug_option = sys.argv[2]
-        else:
-            print("Introduza o numero correto de argumentos!")
+    def __init__(self, fileConfig, porta, timeout, debug_option):
+
+        self.fileConfig = fileConfig
+        self.porta = porta
+        self.timeout = timeout
+        self.debug_option = debug_option
 
         bfsize = 1024
 
@@ -139,6 +133,31 @@ class SP:
             string += str(l) + ';' # pus ; pq senao podia dar erro por causa do tempo (o tempo tem " " na forma de string)
         return string + "\n"
 
+    def tratarZT(self, DBentries, entries, tcpSocket, add):
+
+        start = time.time()
+        #  print("Conexao obtida (Servidor Secundario): ", str(add))
+        requestmsg = tcpSocket.recv(1024).decode('utf-8')
+        #  print(requestmsg)
+        tcpSocket.send(entries.encode('utf-8'))
+        msg = tcpSocket.recv(1024).decode('utf-8')
+        #  print(msg)
+        #  address = re.split(':', add)
+        address = add[0]
+
+
+        sentBytes = 0
+        for line in DBentries:
+            l = self.putlineCache(line)
+            sentBytes += len(l)
+            tcpSocket.send(l.encode('utf-8'))
+            time.sleep(0.05)
+
+        tcpSocket.close()
+        end = time.time()
+        self.allLogs.ZT(address, str(add[1]), "SP", str(sentBytes), str((end - start)*1000))
+
+
     def zt(self):
 
         nEntriesDB = 0 # adicionei isto
@@ -159,33 +178,33 @@ class SP:
             tcp.listen()
 
             tcpSocket, add = tcp.accept()
-            print("Conexao obtida (Servidor Secundario): ", str(add))
-            requestmsg = tcpSocket.recv(1024).decode('utf-8')
-            print(requestmsg)
-            tcpSocket.send(entries.encode('utf-8'))
-            msg = tcpSocket.recv(1024).decode('utf-8')
-            print(msg)
-            #  address = re.split(':', add)
-            address = add[0]
+            ztRequestThread = threading.Thread(target=self.tratarZT, args=(DBentries, entries, tcpSocket, add,))
+            ztRequestThread.start()
 
+    def run(self):
+        zoneTransferThread = threading.Thread(target=self.zt) 
+        zoneTransferThread.run()
 
-            for line in DBentries:
-                l = self.putlineCache(line)
-                tcpSocket.send(l.encode('utf-8'))
-                time.sleep(0.05)
-
-            tcpSocket.close()
-            date = datetime.now()
-            atmtime = date.strftime("%d:%m:%Y.%H:%M:%S:%f")[:-3]
-            self.allLogs.ZT(f"IP: " + address[0], f"Porta: " + address[1], "ZT", "SS", atmtime)
-
-
+        self.recebeNovasQuerys()
 
 def main():
+    tokens = len(sys.argv)
+    if tokens == 5:
+        fileConfig = sys.argv[1]
+        porta = int(sys.argv[2])
+        timeout = int(sys.argv[3])
+        debug_option = sys.argv[4]
+    elif tokens == 4:
+        fileConfig = sys.argv[1]
+        porta = 11111
+        timeout = int(sys.argv[2])
+        debug_option = sys.argv[3]
+    else:
+        print("<Usage> configFile *portNumber timeout *D\n* not mandatory.")
+        return 
 
-    sp = SP()
-    sp.zt()
-    sp.recebeNovasQuerys()
+    sp = SP(fileConfig, porta, timeout, debug_option)
+    sp.run()
 
 
 

@@ -10,7 +10,6 @@ class Cache:
 
     def adicionaLinhaCache(self, name, type, value, ttl=0, prio=0, origin="FILE", time=datetime.datetime.now(), state="VALIDO"):
 
-        print(name, type, ttl, prio, origin, time, self.index, state)
         new = (name, type, value, str(ttl), str(prio), origin, time, str(self.index), state)
         self.array.append(new)
         self.index += 1

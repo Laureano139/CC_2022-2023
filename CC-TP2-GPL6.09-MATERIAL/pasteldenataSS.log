@@ -1,0 +1,44 @@
+# Log file for DNS server/resolver27:12:2022.11:08:47.235 ST 127.0.0.1 11111 1026
+27:12:2022.11:08:47.235 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:08:47.235 EV 127.0.0.1 Ficheiro de base de dados lido!!
+# Log file for DNS server/resolver27:12:2022.11:14:48.081 ST 127.0.0.1 11111 1026
+27:12:2022.11:14:48.081 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:14:48.081 EV 127.0.0.1 Ficheiro de base de dados lido!!
+27:12:2022.11:14:49.538 ZT 127.0.0.1:5555  time=1456.0294151306152ms received 2362 bytes
+# Log file for DNS server/resolver27:12:2022.11:15:14.887 ST 127.0.0.1 11111 1026
+27:12:2022.11:15:14.887 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:15:14.887 EV 127.0.0.1 Ficheiro de base de dados lido!!
+# Log file for DNS server/resolver27:12:2022.11:15:26.807 ST 127.0.0.1 11111 1026
+27:12:2022.11:15:26.808 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:15:26.808 EV 127.0.0.1 Ficheiro de base de dados lido!!
+27:12:2022.11:15:28.263 ZT 127.0.0.1:5555  time=1455.354928970337ms received 2362 bytes
+# Log file for DNS server/resolver27:12:2022.11:16:59.971 ST 127.0.0.1 11111 1026
+27:12:2022.11:16:59.971 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:16:59.971 EV 127.0.0.1 Ficheiro de base de dados lido!!
+27:12:2022.11:17:01.429 ZT 127.0.0.1:5555  time=1457.7841758728027ms received 2362 bytes
+# Log file for DNS server/resolver27:12:2022.11:17:12.137 ST 127.0.0.1 11111 1025
+27:12:2022.11:17:12.137 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:17:12.137 EV 127.0.0.1 Ficheiro de base de dados lido!!
+# Log file for DNS server/resolver27:12:2022.11:17:12.137 ST 127.0.0.1 11111 1026
+27:12:2022.11:17:12.137 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:17:12.137 EV 127.0.0.1 Ficheiro de base de dados lido!!
+# Log file for DNS server/resolver27:12:2022.11:17:20.324 ST 127.0.0.1 11111 1025
+27:12:2022.11:17:20.324 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:17:20.324 EV 127.0.0.1 Ficheiro de base de dados lido!!
+# Log file for DNS server/resolver27:12:2022.11:17:20.324 ST 127.0.0.1 11111 1026
+27:12:2022.11:17:20.324 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:17:20.325 EV 127.0.0.1 Ficheiro de base de dados lido!!
+# Log file for DNS server/resolver27:12:2022.11:17:20.325 ST 127.0.0.1 11111 1027
+27:12:2022.11:17:20.325 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:17:20.325 EV 127.0.0.1 Ficheiro de base de dados lido!!
+# Log file for DNS server/resolver27:12:2022.11:17:20.325 ST 127.0.0.1 11111 1028
+27:12:2022.11:17:20.325 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:17:20.325 EV 127.0.0.1 Ficheiro de base de dados lido!!
+# Log file for DNS server/resolver27:12:2022.11:17:20.325 ST 127.0.0.1 11111 1029
+27:12:2022.11:17:20.325 EV 127.0.0.1 Ficheiro config lido!!
+27:12:2022.11:17:20.325 EV 127.0.0.1 Ficheiro de base de dados lido!!
+27:12:2022.11:17:21.782 ZT 127.0.0.1:5555  time=1456.549882888794ms received 2362 bytes
+27:12:2022.11:17:21.782 ZT 127.0.0.1:5555  time=1456.6104412078857ms received 2362 bytes
+27:12:2022.11:17:21.783 ZT 127.0.0.1:5555  time=1456.456184387207ms received 2362 bytes
+27:12:2022.11:17:21.783 ZT 127.0.0.1:5555  time=1456.4411640167236ms received 2362 bytes
+27:12:2022.11:17:21.783 ZT 127.0.0.1:5555  time=1456.3202857971191ms received 2362 bytes
