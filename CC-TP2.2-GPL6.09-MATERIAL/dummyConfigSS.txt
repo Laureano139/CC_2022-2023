@@ -1,5 +1,5 @@
 # Dummy configuration file for Secondary Server for testing purposes
-pasteldenata SP 127.0.0.1:5555
+pasteldenata SP 10.0.9.10:5555
 pasteldenata LG pasteldenataSS.log
 all LG all.log
 root ST rootservers.db

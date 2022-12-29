@@ -48,3 +48,16 @@
 27:12:2022.11:17:21.783 ZT 127.0.0.1:51432  time=1455.6171894073486ms sent 2362 bytes
 27:12:2022.11:17:21.783 ZT 127.0.0.1:51426  time=1456.0496807098389ms sent 2362 bytes
 27:12:2022.11:17:21.783 ZT 127.0.0.1:51410  time=1456.4886093139648ms sent 2362 bytes
+# Log file for DNS server/resolver# Log file for DNS server/resolver29:12:2022.15:48:26.657 ST 127.0.0.1 11111 5555
+29:12:2022.15:48:26.657 EV 127.0.0.1 Ficheiro config lido!!
+29:12:2022.15:48:26.658 EV 127.0.0.1 Ficheiro de base de dados lido!!
+29:12:2022.15:49:09.785 ZT 10.0.19.11:55516  time=1547.0051765441895ms sent 2362 bytes
+# Log file for DNS server/resolver29:12:2022.15:54:46.570 ST 127.0.0.1 11111 5555
+29:12:2022.15:54:46.571 EV 127.0.0.1 Ficheiro config lido!!
+29:12:2022.15:54:46.571 EV 127.0.0.1 Ficheiro de base de dados lido!!
+29:12:2022.15:54:55.109 Query log started...
+29:12:2022.15:54:55.110 QR('10.0.21.20', 55379) 8284,Q,0,0,0,0;pasteldenata.,MX;
+29:12:2022.15:54:55.110 Query log started...
+29:12:2022.15:54:55.110 QE('10.0.21.20', 55379) 8284,Q,0,0,0,0;pasteldenata.,MX;
+29:12:2022.15:54:55.111 RP('10.0.21.20', 55379) 8284,Q,0,0,0,0;pasteldenata.,MX;
+29:12:2022.15:54:55.111 RR('10.0.21.20', 55379) 8284,Q,0,0,0,0;pasteldenata.,MX;

@@ -9,6 +9,7 @@ ipserver = x[0]
 portserver = x[1]
 dom = sys.argv[2]
 typeValue = sys.argv[3] 
+recursive = False
 if len(sys.argv) > 4:
     recursive = True   
     
